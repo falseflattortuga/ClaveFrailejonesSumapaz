@@ -1,5 +1,5 @@
 # ClaveFrailejonesSumapaz
-Clave interactiva y probabilística para las especies de frailejone del páramo de Sumapaz.
+Clave interactiva y probabilística para las especies de frailejones del páramo de Sumapaz.
 Este repositorio se centra en el desarrollo de una clave para determinar la especie a la que pertenecen especímenes de frailejones
 (Espeletia, Espeletiinae, Asteraceae) colectados en el páramo de Sumapaz (Cordillera Oriental colombiana). La clave será interactiva
 (sensu, Dallwitz et al. 2000. Principles of interactive keys. http://biodiversity.uno.edu/delta, 3) porque cualquier combinación de
