@@ -1,47 +1,47 @@
 ################################################################################
 ################################################################################
 #
-# INTRODUCCION
-# El cÛdigo en este guiÛn ilustra el concepto de una clave interactiva y
-# probabilÌstica. Una clave es interactiva (sensu, Dallwitz et al. 2000.
+# INTRODUCCI√ìN
+# El c√≥digo en este gui√≥n ilustra el concepto de una clave interactiva y
+# probabil√≠stica. Una clave es interactiva (sensu, Dallwitz et al. 2000.
 # Principles of interactive keys. http://biodiversity.uno.edu/delta, 3) cuando 
-# cualquier combinaciÛn de caracteres relevantes puede utilizarse para tratar
-# de determinar la especie a la que pertenece un espÈcimen dado. Una clave es
-# probabilÌstica cuando estima la probabilidad de que un espÈcimen dado
+# cualquier combinaci√≥n de caracteres relevantes puede utilizarse para tratar
+# de determinar la especie a la que pertenece un esp√©cimen dado. Una clave es
+# probabil√≠stica cuando estima la probabilidad de que un esp√©cimen dado
 # pertenezca a cada una de las especies consideradas en la clave. La clave
-# en este guiÛn se basa en el modelo probabilÌstico de mezclas normales
+# en este gui√≥n se basa en el modelo probabil√≠stico de mezclas normales
 # (McLachlan y Peel. 2000. Finite Mixture Models, Willey Series in Probability
 # and Statistics, John Wiley & Sons, New York) aplicado al contexto de
-# delimitaciÛn y descripciÛn de especies (Zapata y JimÈnez. 2012. Species
+# delimitaci√≥n y descripci√≥n de especies (Zapata y Jim√©nez. 2012. Species
 # Delimitation: Inferring Gaps in Morphology across Geography. Syst. Biol. 61:
-# 179ñ194; Cadena et al. 2018. Issues and Perspectives in Species Delimitation
-# using Phenotypic Data: Atlantean Evolution in Darwinís Finches. Syst. Biol.
-# 67: 181ñ194).
+# 179‚Äì194; Cadena et al. 2018. Issues and Perspectives in Species Delimitation
+# using Phenotypic Data: Atlantean Evolution in Darwin‚Äôs Finches. Syst. Biol.
+# 67: 181‚Äì194).
 #
-# ARCHIVOS NECESARIOS PARA UTILIZAR EL CODIGO
+# ARCHIVOS NECESARIOS PARA UTILIZAR EL C√ìDIGO
 # Ninguno.
 # 
 # CONTENIDO
-# 1. Preliminares.
-# 2. SimulaciÛn de la distribuciÛn fenotÌpica de tres especies
-# 3. RepresentaciÛn gr·fica de la distribuciÛn fenotÌpica de las tres especies.
-# 4. SimulaciÛn del fenotipo de un espÈcimen.
-# 5. RepresentaciÛn gr·fica del fenotipo del esp·cimen en el contexto de la
-#    distribuciÛn fenotÌpica de las tres especies.
-# 6. SimulaciÛn del fenotipo medido del espÈcimen.
-# 7. RepresentaciÛn gr·fica del fenotipo medido en el espÈcimen en el contexto
-#    de la distribuciÛn fenotÌpica de las tres especies.
-# 8. Verosimilitud del fenotipo del espÈcimen respecto a las distribuciones
-#    fenotÌpicas de cada una de las tres especies.
-# 9. Verosimilitud del fenotipo medido en el espÈcimen respecto a las
-#    distribuciones fenotÌpicas de cada una de las tres especies.
-# 10. ComparaciÛn las verosimilitudes del fenotipo y del fenotipo medido en el
-#     espÈcimen.
+# 1. Preparar paquetes requeridos.
+# 2. Simulaci√≥n de la distribuci√≥n fenot√≠pica de tres especies
+# 3. Representaci√≥n gr√°fica de la distribuci√≥n fenot√≠pica de las tres especies.
+# 4. Simulaci√≥n del fenotipo de un esp√©cimen.
+# 5. Representaci√≥n gr√°fica del fenotipo del esp√°cimen en el contexto de la
+#    distribuci√≥n fenot√≠pica de las tres especies.
+# 6. Simulaci√≥n del fenotipo medido del esp√©cimen.
+# 7. Representaci√≥n gr√°fica del fenotipo medido en el esp√©cimen en el contexto
+#    de la distribuci√≥n fenot√≠pica de las tres especies.
+# 8. Verosimilitud del fenotipo del esp√©cimen respecto a las distribuciones
+#    fenot√≠picas de cada una de las tres especies.
+# 9. Verosimilitud del fenotipo medido en el esp√©cimen respecto a las
+#    distribuciones fenot√≠picas de cada una de las tres especies.
+# 10. Comparaci√≥n las verosimilitudes del fenotipo y del fenotipo medido en el
+#     esp√©cimen.
 # 11. Probabilidad de muestrear un fenotipo al menos tan extremo como el
 #     observado.
 # 12. Probabilidad de muestrear un fenotipo medido al menos tan extremo como
 #     el observado.
-# 13. ComparaciÛn las probabilidades de muestrear un fenotipo y un fenotipo
+# 13. Comparaci√≥n las probabilidades de muestrear un fenotipo y un fenotipo
 #     medido al menos tan extremos como los observados.
 #
 ################################################################################
@@ -49,7 +49,7 @@
 
 
 ################################################################################
-# 1. Preliminares.
+# 1. Preparar paquetes requeridos.
 ################################################################################
 
 #cargue paquetes (asegurese de instalarlos antes de cargarlos)
@@ -59,10 +59,10 @@ library(clusterGeneration)
 
 
 ################################################################################
-# 2. SimulaciÛn de la distribuciÛn fenotÌpica de tres especies.
+# 2. Simulaci√≥n de la distribuci√≥n fenot√≠pica de tres especies.
 ################################################################################
 
-#defina el n˙mero de caracteres fenotÌpicos en la descripciÛn de las especies
+#defina el n√∫mero de caracteres fenot√≠picos en la descripci√≥n de las especies
 p <- 13
 
 #simule aleatoriamente el vector de medias para cada especie
@@ -80,7 +80,7 @@ VCV <- list(VCV.1, VCV.2, VCV.3)
 VCV
 
 ################################################################################
-# 3. RepresentaciÛn gr·fica de la distribuciÛn fenotÌpica de las tres especies.
+# 3. Representaci√≥n gr√°fica de la distribuci√≥n fenot√≠pica de las tres especies.
 ################################################################################
 
 #selecione los colores para representar cada una de tres especies
@@ -88,15 +88,15 @@ color.especies <- c("red", "blue", "green")
 
 
 ################################################################################
-# 3.1. DistribuciÛn bivariada en dos caracteres particulares.
+# 3.1. Distribuci√≥n bivariada en dos caracteres particulares.
 ################################################################################
 
-#escoja los dos caracteres fenotÌpicos de interÈs
+#escoja los dos caracteres fenot√≠picos de inter√©s
 CF1 <- 13
 CF2 <- 7
 
 plot(ellipse(VCV[[1]][c(CF1, CF2), c(CF1, CF2)], centre=M[[1]][c(CF1, CF2)]), type="l", col=color.especies[1],
-	xlab=paste("Car·cter fenotÌpico", CF1), ylab=paste("Car·cter fenotÌpico", CF2), xlim=c(-3,3), ylim=c(-3,3))
+	xlab=paste("Car√°cter fenot√≠pico", CF1), ylab=paste("Car√°cter fenot√≠pico", CF2), xlim=c(-3,3), ylim=c(-3,3))
 points(M[[1]][CF1], M[[1]][CF2], col=color.especies[1], pch=19, cex=1.5)
 for(i in 2:3){
 	points(ellipse(VCV[[i]][c(CF1, CF2), c(CF1, CF2)], centre=M[[i]][c(CF1, CF2)]), type="l", col=color.especies[i])
@@ -104,7 +104,7 @@ for(i in 2:3){
 }
 
 ################################################################################
-# 3.2. DistribuciÛn bivariada en todos los pares de caracteres.
+# 3.2. Distribuci√≥n bivariada en todos los pares de caracteres.
 ################################################################################
 
 indice.par.caracteres <- combn(1:p,2)
@@ -112,7 +112,7 @@ indice.par.caracteres <- combn(1:p,2)
 		CF1 <- indice.par.caracteres[1,j]
 		CF2 <- indice.par.caracteres[2,j]
 		plot(ellipse(VCV[[1]][c(CF1, CF2), c(CF1, CF2)], centre=M[[1]][c(CF1, CF2)]), type="l", col=color.especies[1],
-			xlab=paste("Car·cter fenotÌpico", CF1), ylab=paste("Car·cter fenotÌpico", CF2), xlim=c(-3,3), ylim=c(-3,3))
+			xlab=paste("Car√°cter fenot√≠pico", CF1), ylab=paste("Car√°cter fenot√≠pico", CF2), xlim=c(-3,3), ylim=c(-3,3))
 		points(M[[1]][CF1], M[[1]][CF2], col=color.especies[1], pch=19, cex=1.5)
 		for(i in 2:3){
 			points(ellipse(VCV[[i]][c(CF1, CF2), c(CF1, CF2)], centre=M[[i]][c(CF1, CF2)]), type="l", col=color.especies[i])
@@ -123,7 +123,7 @@ indice.par.caracteres <- combn(1:p,2)
 
 
 ################################################################################
-# 4. SimulaciÛn del fenotÌpo de un espÈcimen.
+# 4. Simulaci√≥n del fenot√≠po de un esp√©cimen.
 ################################################################################
 
 fenotipo.especimen <- runif(p, -3, 3)
@@ -131,8 +131,8 @@ fenotipo.especimen
 
 
 ################################################################################
-# 5. RepresentaciÛn gr·fica del fenotipo del espÈcimen en el contexto de la
-#    distribuciÛn fenotÌpica de las tres especies.
+# 5. Representaci√≥n gr√°fica del fenotipo del esp√©cimen en el contexto de la
+#    distribuci√≥n fenot√≠pica de las tres especies.
 ################################################################################
 
 indice.par.caracteres <- combn(1:p,2)
@@ -140,7 +140,7 @@ indice.par.caracteres <- combn(1:p,2)
 		CF1 <- indice.par.caracteres[1,j]
 		CF2 <- indice.par.caracteres[2,j]
 		plot(ellipse(VCV[[1]][c(CF1, CF2), c(CF1, CF2)], centre=M[[1]][c(CF1, CF2)]), type="l", col=color.especies[1],
-			xlab=paste("Car·cter fenotÌpico", CF1), ylab=paste("Car·cter fenotÌpico", CF2), xlim=c(-3,3), ylim=c(-3,3))
+			xlab=paste("Car√°cter fenot√≠pico", CF1), ylab=paste("Car√°cter fenot√≠pico", CF2), xlim=c(-3,3), ylim=c(-3,3))
 		points(M[[1]][CF1], M[[1]][CF2], col=color.especies[1], pch=19, cex=1.5)
 		for(i in 2:3){
 			points(ellipse(VCV[[i]][c(CF1, CF2), c(CF1, CF2)], centre=M[[i]][c(CF1, CF2)]), type="l", col=color.especies[i])
@@ -152,19 +152,19 @@ indice.par.caracteres <- combn(1:p,2)
 
 
 ################################################################################
-# 6. SimulaciÛn del fenotipo medido del espÈcimen.
+# 6. Simulaci√≥n del fenotipo medido del esp√©cimen.
 ################################################################################
 
-#definiciÛn del n˙mero de caracteres medidos
+#definici√≥n del n√∫mero de caracteres medidos
 numero.caracteres.medidos <- sample(1:p, size=1)
 numero.caracteres.medidos
-#numero.caracteres.medidos <- 1 #use esta lÌnea si no quiere dejar al azar el n˙mero de car·cteres medidos
+#numero.caracteres.medidos <- 1 #use esta l√≠nea si no quiere dejar al azar el n√∫mero de car√°cteres medidos
 
-#definiciÛn de los caracteres medidos
+#definici√≥n de los caracteres medidos
 caracteres.medidos <- sort(sample(1:p, numero.caracteres.medidos))
 caracteres.medidos
 
-#definiciÛn del fenotipo medido
+#definici√≥n del fenotipo medido
 medidas.especimen <- fenotipo.especimen
 medidas.especimen[-caracteres.medidos] <- NA
 fenotipo.especimen
@@ -172,11 +172,11 @@ medidas.especimen
 
 
 ################################################################################
-# 7. RepresentaciÛn gr·fica del fenotipo medido en el espÈcimen en el contexto
-#    de la distribuciÛn fenotÌpica de las tres especies.
+# 7. Representaci√≥n gr√°fica del fenotipo medido en el esp√©cimen en el contexto
+#    de la distribuci√≥n fenot√≠pica de las tres especies.
 ################################################################################
 
-#si el fenotipo medido sÛlo incluye un car·cter
+#si el fenotipo medido s√≥lo incluye un car√°cter
 if(numero.caracteres.medidos<2){
 	CF1 <- caracteres.medidos
 	max.density <- rep(NA, times=3)
@@ -184,7 +184,7 @@ if(numero.caracteres.medidos<2){
 		max.density[i] <- max(dnorm(seq(-3,3,0.01), mean = M[[i]][CF1], sd = sqrt(VCV[[i]][CF1,CF1])))
 	}
 	plot(seq(-3,3,0.01), dnorm(seq(-3,3,0.01), mean = M[[1]][CF1], sd = sqrt(VCV[[1]][CF1,CF1])), type="l", col=color.especies[1],
-		ylab="Densidad de probabilidad", xlab=paste("Car·cter fenotÌpico", CF1), ylim=c(0,max(max.density)))
+		ylab="Densidad de probabilidad", xlab=paste("Car√°cter fenot√≠pico", CF1), ylim=c(0,max(max.density)))
 	abline(v= M[[1]][CF1], col= color.especies[1])
 	for(i in 2:3){
 		points(seq(-3,3,0.01), dnorm(seq(-3,3,0.01), mean = M[[i]][CF1], sd = sqrt(VCV[[i]][CF1,CF1])), type="l", col=color.especies[i])
@@ -193,14 +193,14 @@ if(numero.caracteres.medidos<2){
 	abline(v=medidas.especimen[CF1], lty=3, lwd=2)
 }
 
-#si el fenotipo medido incluye dos o m·s caracteres
+#si el fenotipo medido incluye dos o m√°s caracteres
 if(numero.caracteres.medidos>1){
 	indice.par.caracteres <- combn(caracteres.medidos,2)
 	for(j in 1:ncol(indice.par.caracteres)){
 		CF1 <- indice.par.caracteres[1,j]
 		CF2 <- indice.par.caracteres[2,j]
 		plot(ellipse(VCV[[1]][c(CF1, CF2), c(CF1, CF2)], centre=M[[1]][c(CF1, CF2)]), type="l", col=color.especies[1],
-			xlab=paste("Car·cter fenotÌpico", CF1), ylab=paste("Car·cter fenotÌpico", CF2), xlim=c(-3,3), ylim=c(-3,3))
+			xlab=paste("Car√°cter fenot√≠pico", CF1), ylab=paste("Car√°cter fenot√≠pico", CF2), xlim=c(-3,3), ylim=c(-3,3))
 		points(M[[1]][CF1], M[[1]][CF2], col=color.especies[1], pch=19, cex=1.5)
 		for(i in 2:3){
 			points(ellipse(VCV[[i]][c(CF1, CF2), c(CF1, CF2)], centre=M[[i]][c(CF1, CF2)]), type="l", col=color.especies[i])
@@ -213,8 +213,8 @@ if(numero.caracteres.medidos>1){
 
 
 ################################################################################
-# 8. Verosimilitud del fenotipo del espÈcimen respecto a las distribuciones
-#    fenotÌpicas de cada una de las tres especies.
+# 8. Verosimilitud del fenotipo del esp√©cimen respecto a las distribuciones
+#    fenot√≠picas de cada una de las tres especies.
 ################################################################################
 
 #logaritmo de la verosimilitud
@@ -229,35 +229,35 @@ plot(logv.fenotipo, type="l", pch=19, xaxt="n", xlab="Especies", ylab="Log ( ver
 points(logv.fenotipo, type="p", pch=19, cex=2, col=color.especies)
 axis(1, at=1:3)
 
-#clasificaciÛn del fenotipo medido del espÈcimen por m·xima verosimilitud
+#clasificaci√≥n del fenotipo medido del esp√©cimen por m√°xima verosimilitud
 which(logv.fenotipo==max(logv.fenotipo))
-#incertidumbre de la clasificaciÛn por m·xima verosimilitud
-#(ver p·gina 614, despuÈs de ecuaciÛn 7 en Fraley, C. and Raftery, A.E., 2002. Model-based clustering,
+#incertidumbre de la clasificaci√≥n por m√°xima verosimilitud
+#(ver p√°gina 614, despu√©s de ecuaci√≥n 7 en Fraley, C. and Raftery, A.E., 2002. Model-based clustering,
 #discriminant analysis, and density estimation. Journal of the American Statistical Association, 97: 611-631)
 1 - max(exp(logv.fenotipo))/sum(exp(logv.fenotipo))
 
 
 ################################################################################
-# 9. Verosimilitud del fenotipo medido en el espÈcimen respecto a las
-#    distribuciones fenotÌpicas de cada una de las tres especies.
+# 9. Verosimilitud del fenotipo medido en el esp√©cimen respecto a las
+#    distribuciones fenot√≠picas de cada una de las tres especies.
 ################################################################################
 
 #logaritmo de la verosimilitud
 logv.fenotipo.medido <- rep(NA, times=3)
 
-#si el fenotipo medido sÛlo incluye un car·cter
+#si el fenotipo medido s√≥lo incluye un car√°cter
 if(numero.caracteres.medidos<2){
 	logv.fenotipo.medido[1] <- dnorm(medidas.especimen[!is.na(medidas.especimen)], mean= M[[1]][caracteres.medidos], sd = sqrt(VCV[[1]][caracteres.medidos,caracteres.medidos]), log = T) 
 	logv.fenotipo.medido[2] <- dnorm(medidas.especimen[!is.na(medidas.especimen)], mean= M[[2]][caracteres.medidos], sd = sqrt(VCV[[2]][caracteres.medidos,caracteres.medidos]), log = T) 
 	logv.fenotipo.medido[3] <- dnorm(medidas.especimen[!is.na(medidas.especimen)], mean= M[[3]][caracteres.medidos], sd = sqrt(VCV[[3]][caracteres.medidos,caracteres.medidos]), log = T) 
 	plot(logv.fenotipo.medido, type="l", pch=19, xaxt="n", xlab="Especies",
-	ylab=paste("Log ( verosimilitud del fenotipo medido ), ", numero.caracteres.medidos, " car·cter de ", "p=", p, sep=""))
+	ylab=paste("Log ( verosimilitud del fenotipo medido ), ", numero.caracteres.medidos, " car√°cter de ", "p=", p, sep=""))
 	points(logv.fenotipo.medido, type="p", pch=19, cex=2, col=color.especies)
 	axis(1, at=1:3)
 }
 logv.fenotipo.medido
 
-#si el fenotipo medido incluye dos o m·s caracteres
+#si el fenotipo medido incluye dos o m√°s caracteres
 if(numero.caracteres.medidos>1){
 	logv.fenotipo.medido[1] <- dmvnorm(medidas.especimen[!is.na(medidas.especimen)], mean= M[[1]][caracteres.medidos], sigma = VCV[[1]][caracteres.medidos,caracteres.medidos], log = T) 
 	logv.fenotipo.medido[2] <- dmvnorm(medidas.especimen[!is.na(medidas.especimen)], mean= M[[2]][caracteres.medidos], sigma = VCV[[2]][caracteres.medidos,caracteres.medidos], log = T)
@@ -271,8 +271,8 @@ logv.fenotipo.medido
 
 
 ################################################################################
-# 10. ComparaciÛn las verosimilitudes del fenotipo y del fenotipo medido en el
-#     espÈcimen.
+# 10. Comparaci√≥n las verosimilitudes del fenotipo y del fenotipo medido en el
+#     esp√©cimen.
 ################################################################################ 
 
 plot(logv.fenotipo, logv.fenotipo.medido, pch=19, cex=2, col=color.especies,
@@ -316,7 +316,7 @@ P.fenotipo.al.menos.tan.extremo[3]
 
 P.fenotipo.medido.al.menos.tan.extremo <- rep(NA, times=3)
 
-#si el fenotipo medido sÛlo incluye un car·cter
+#si el fenotipo medido s√≥lo incluye un car√°cter
 if(numero.caracteres.medidos<2){
 	logv.fenotipo.medido.C.1 <- 0.5*(log(VCV[[1]][caracteres.medidos,caracteres.medidos])+(numero.caracteres.medidos*log(2*pi)))
 	fenotipo.medido.DiMa.1 <- -2*(logv.fenotipo.medido[1]+logv.fenotipo.medido.C.1)
@@ -334,7 +334,7 @@ if(numero.caracteres.medidos<2){
 	P.fenotipo.medido.al.menos.tan.extremo[3]
 }
 
-#si el fenotipo medido incluye dos o m·s caracteres
+#si el fenotipo medido incluye dos o m√°s caracteres
 if(numero.caracteres.medidos>1){
 	logv.fenotipo.medido.C.1 <- 0.5*(log(det(VCV[[1]][caracteres.medidos,caracteres.medidos]))+(numero.caracteres.medidos*log(2*pi)))
 	fenotipo.medido.DiMa.1 <- sqrt(-2*(logv.fenotipo.medido[1]+logv.fenotipo.medido.C.1))
@@ -354,13 +354,13 @@ if(numero.caracteres.medidos>1){
 
 
 ################################################################################
-# 13. ComparaciÛn las probabilidades de muestrear un fenotipo y un fenotipo medido
+# 13. Comparaci√≥n las probabilidades de muestrear un fenotipo y un fenotipo medido
 #     al menos tan extremos como los observados.
 ################################################################################
 
 plot(P.fenotipo.al.menos.tan.extremo, P.fenotipo.medido.al.menos.tan.extremo, pch=19, cex=2, col=color.especies,
 	xlab=paste("P ( fenotipo al menos tan extremo como el observado ), p=", p, sep=""), 
-	ylab=paste("P ( fenotipo medido al menos tan extremo como el observado ), ", numero.caracteres.medidos, " car·cteres", sep=""))
+	ylab=paste("P ( fenotipo medido al menos tan extremo como el observado ), ", numero.caracteres.medidos, " car√°cteres", sep=""))
 #legend("bottomright", c("Especie 1", "Especie 2", "Especie 3"), pch=19, cex=2, col=color.especies)
 #legend("topright", c("Especie 1", "Especie 2", "Especie 3"), pch=19, cex=2, col=color.especies)
 #legend("bottomleft", c("Especie 1", "Especie 2", "Especie 3"), pch=19, cex=2, col=color.especies)
